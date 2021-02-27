@@ -1,33 +1,25 @@
-
-import { useEffect, useState } from 'react';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import Man from './Components/Man/Man';
-import userdata from './Data/data.json'
-
+import { useEffect, useState } from "react";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import Man from "./Components/Man/Man";
+import userdata from "./Data/data.json";
 
 function App() {
+  const [user, setUser] = useState([]);
 
-  const [user,setUser] = useState([]);
-
-  useEffect(() =>{
+  useEffect(() => {
     setUser(userdata);
     console.log(userdata);
-    const man = userdata.map(user => user.name);
-    console.log(man)
-  }, [])
+  }, []);
+
+  const handleAddMan = () => {console.log('kelbo'}
+
+
   return (
     <div className="App">
-
-    <button className="btn btn-dark">hello</button>
-    <ul>
-      {
-        user.map(man =><Man man={man}></Man>)
-      }
-    </ul>
-    
-    
-
+      {user.map((man) => (
+        <Man handleAddMan={handleAddMan} key={man.username} man={man}></Man>
+      ))}
     </div>
   );
 }
