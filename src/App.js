@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import './App.css';
-import userdata from './data.json'
+import userdata from './Data/data.json'
 
 function App() {
 
